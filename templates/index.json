@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "image_banner": {
@@ -13,7 +22,7 @@
         "text_tyDnaE": {
           "type": "text",
           "settings": {
-            "text": "<strong>Made Simple<\/strong>",
+            "text": "<strong>Made Simple</strong>",
             "text_style": "subtitle"
           }
         },
@@ -28,7 +37,7 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Get started",
-            "button_link_1": "shopify:\/\/collections\/all",
+            "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -43,7 +52,7 @@
         "button"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/image_2.png",
+        "image": "shopify://shop_images/image_2.png",
         "image_overlay_opacity": 50,
         "image_height": "medium",
         "desktop_content_position": "top-right",
@@ -62,9 +71,9 @@
         "column_fHfTcd": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/notebook.png",
+            "image": "shopify://shop_images/notebook.png",
             "title": "",
-            "text": "<p>Take a quiz about your cats to customize their Meal Plan.<\/p>",
+            "text": "<p>Take a quiz about your cats to customize their Meal Plan.</p>",
             "link_label": "",
             "link": ""
           }
@@ -72,9 +81,9 @@
         "column_GMnVpc": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/open_box.png",
+            "image": "shopify://shop_images/open_box.png",
             "title": "",
-            "text": "<p>Use the Starter Box to see what recipes your cats like best.<\/p>",
+            "text": "<p>Use the Starter Box to see what recipes your cats like best.</p>",
             "link_label": "",
             "link": ""
           }
@@ -82,9 +91,9 @@
         "column_88QqYj": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/calendar.png",
+            "image": "shopify://shop_images/calendar.png",
             "title": "",
-            "text": "<p>You have 2 weeks to change up your order before the first monthly box ships.<\/p>",
+            "text": "<p>You have 2 weeks to change up your order before the first monthly box ships.</p>",
             "link_label": "",
             "link": ""
           }
@@ -92,9 +101,9 @@
         "column_4iTrGw": {
           "type": "column",
           "settings": {
-            "image": "shopify:\/\/shop_images\/plastic_container.png",
+            "image": "shopify://shop_images/plastic_container.png",
             "title": "",
-            "text": "<p>Get your full Meal Plan box every 4 weeks at 10% off. Edit, delay, or cancel anytime.<\/p>",
+            "text": "<p>Get your full Meal Plan box every 4 weeks at 10% off. Edit, delay, or cancel anytime.</p>",
             "link_label": "",
             "link": ""
           }
@@ -138,14 +147,14 @@
         "heading_epiTww": {
           "type": "heading",
           "settings": {
-            "heading": "The easiest way to keep them happy & healthy.\u2028",
+            "heading": "The easiest way to keep them happy & healthy. ",
             "heading_size": "h2"
           }
         },
         "text_mrxBPg": {
           "type": "text",
           "settings": {
-            "text": "<ul><li>Save 10% on every order<\/li><li>No more schlepping to the store<\/li><li>Customized to your cats<\/li><li>Discounted shipping<\/li><li>Edit or cancel anytime<\/li><\/ul>",
+            "text": "<ul><li>Save 10% on every order</li><li>No more schlepping to the store</li><li>Customized to your cats</li><li>Discounted shipping</li><li>Edit or cancel anytime</li></ul>",
             "text_style": "body"
           }
         },
@@ -153,7 +162,7 @@
           "type": "button",
           "settings": {
             "button_label": "Get a meal plan",
-            "button_link": "shopify:\/\/pages\/how-its-work",
+            "button_link": "shopify://pages/how-its-work",
             "button_style_secondary": false
           }
         }
@@ -165,7 +174,7 @@
         "button_XpXTWP"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Frame_48096936.png",
+        "image": "shopify://shop_images/Frame_48096936.png",
         "height": "adapt",
         "desktop_image_width": "small",
         "layout": "image_first",
@@ -218,7 +227,7 @@
           "type": "column",
           "settings": {
             "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
+            "text": "<p>-Lora</p>",
             "link_label": "",
             "link": ""
           }
@@ -227,7 +236,7 @@
           "type": "column",
           "settings": {
             "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
+            "text": "<p>-Lora</p>",
             "link_label": "",
             "link": ""
           }
@@ -236,7 +245,7 @@
           "type": "column",
           "settings": {
             "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
+            "text": "<p>-Lora</p>",
             "link_label": "",
             "link": ""
           }
@@ -245,7 +254,7 @@
           "type": "column",
           "settings": {
             "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
+            "text": "<p>-Lora</p>",
             "link_label": "",
             "link": ""
           }
@@ -281,10 +290,10 @@
         "row_MYXpzW": {
           "type": "row",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_5.png",
+            "image": "shopify://shop_images/image_5.png",
             "caption": "",
             "heading": "",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -292,10 +301,10 @@
         "row_ezDGgt": {
           "type": "row",
           "settings": {
-            "image": "shopify:\/\/shop_images\/image_5.png",
+            "image": "shopify://shop_images/image_5.png",
             "caption": "",
             "heading": "",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "",
             "button_link": ""
           }
