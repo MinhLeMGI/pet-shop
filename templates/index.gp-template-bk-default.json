@@ -1,327 +1,13 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
-  "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Real Cat Food",
-            "heading_size": "h0"
-          }
-        },
-        "text_tyDnaE": {
-          "type": "text",
-          "settings": {
-            "text": "<strong>Made Simple<\/strong>",
-            "text_style": "subtitle"
-          }
-        },
-        "text_wmNp4e": {
-          "type": "text",
-          "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template. Give customers details about the banner image(s) or content on the template. Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Get started",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text_tyDnaE",
-        "text_wmNp4e",
-        "button"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/image_2.png",
-        "image_overlay_opacity": 50,
-        "image_height": "medium",
-        "desktop_content_position": "top-right",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "scheme-3",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
-      }
-    },
-    "multicolumn_wLzUKU": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_fHfTcd": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/notebook.png",
-            "title": "",
-            "text": "<p>Take a quiz about your cats to customize their Meal Plan.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_GMnVpc": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/open_box.png",
-            "title": "",
-            "text": "<p>Use the Starter Box to see what recipes your cats like best.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_88QqYj": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/calendar.png",
-            "title": "",
-            "text": "<p>You have 2 weeks to change up your order before the first monthly box ships.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_4iTrGw": {
-          "type": "column",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/plastic_container.png",
-            "title": "",
-            "text": "<p>Get your full Meal Plan box every 4 weeks at 10% off. Edit, delay, or cancel anytime.<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_fHfTcd",
-        "column_GMnVpc",
-        "column_88QqYj",
-        "column_4iTrGw"
-      ],
-      "settings": {
-        "title": "How It Works",
-        "heading_size": "h1",
-        "image_width": "half",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-2",
-        "columns_tablet": "2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_with_text_LxLDwz": {
-      "type": "image-with-text",
-      "blocks": {
-        "caption_8hrLnF": {
-          "type": "caption",
-          "settings": {
-            "caption": "Why start a meal plan?",
-            "text_style": "caption-with-letter-spacing",
-            "text_size": "medium"
-          }
-        },
-        "heading_epiTww": {
-          "type": "heading",
-          "settings": {
-            "heading": "The easiest way to keep them happy & healthy.\u2028",
-            "heading_size": "h2"
-          }
-        },
-        "text_mrxBPg": {
-          "type": "text",
-          "settings": {
-            "text": "<ul><li>Save 10% on every order<\/li><li>No more schlepping to the store<\/li><li>Customized to your cats<\/li><li>Discounted shipping<\/li><li>Edit or cancel anytime<\/li><\/ul>",
-            "text_style": "body"
-          }
-        },
-        "button_XpXTWP": {
-          "type": "button",
-          "settings": {
-            "button_label": "Get a meal plan",
-            "button_link": "shopify:\/\/pages\/how-its-work",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "caption_8hrLnF",
-        "heading_epiTww",
-        "text_mrxBPg",
-        "button_XpXTWP"
-      ],
-      "settings": {
-        "image": "shopify:\/\/shop_images\/Frame_48096936.png",
-        "height": "adapt",
-        "desktop_image_width": "small",
-        "layout": "image_first",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
-        "section_color_scheme": "scheme-85a4b076-56b8-49a1-a2cf-474a33b10bb8",
-        "color_scheme": "scheme-3f611d37-549b-4429-8ab2-72f0602a0700",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 24,
-        "padding_bottom": 24
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "custom_css": [
-        ".card--card.card--media > .card__content {justify-content: center;}"
-      ],
-      "settings": {
-        "title": "Shop Our Grain-Free Cat Food",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-85a4b076-56b8-49a1-a2cf-474a33b10bb8",
-        "image_ratio": "portrait",
-        "image_shape": "chevronleft",
-        "show_secondary_image": true,
-        "show_vendor": true,
-        "show_rating": true,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn_pTi9QG": {
-      "type": "multicolumn",
-      "blocks": {
-        "column_KtBeUy": {
-          "type": "column",
-          "settings": {
-            "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_Wb7Nja": {
-          "type": "column",
-          "settings": {
-            "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_AeKQqp": {
-          "type": "column",
-          "settings": {
-            "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column_3cBnKq": {
-          "type": "column",
-          "settings": {
-            "title": "Use the Starter Box to see what recipes your cats like best.",
-            "text": "<p>-Lora<\/p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column_KtBeUy",
-        "column_Wb7Nja",
-        "column_AeKQqp",
-        "column_3cBnKq"
-      ],
-      "settings": {
-        "title": "What our customer saying?",
-        "heading_size": "h1",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "columns_desktop": 4,
-        "column_alignment": "center",
-        "background_style": "primary",
-        "button_label": "",
-        "button_link": "",
-        "color_scheme": "scheme-2",
-        "columns_tablet": "2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multirow_TVYgT4": {
-      "type": "multirow",
-      "blocks": {
-        "row_MYXpzW": {
-          "type": "row",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_5.png",
-            "caption": "",
-            "heading": "",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        },
-        "row_ezDGgt": {
-          "type": "row",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/image_5.png",
-            "caption": "",
-            "heading": "",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "button_label": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "row_MYXpzW",
-        "row_ezDGgt"
-      ],
-      "settings": {
-        "image_height": "medium",
-        "desktop_image_width": "medium",
-        "heading_size": "h1",
-        "text_style": "body",
-        "button_style": "secondary",
-        "desktop_content_position": "middle",
-        "desktop_content_alignment": "left",
-        "image_layout": "alternate-right",
-        "section_color_scheme": "scheme-2",
-        "row_color_scheme": "scheme-2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    }
-  },
   "order": [
     "image_banner",
     "multicolumn_wLzUKU",
@@ -329,5 +15,328 @@
     "featured_collection",
     "multicolumn_pTi9QG",
     "multirow_TVYgT4"
-  ]
+  ],
+  "sections": {
+    "featured_collection": {
+      "custom_css": [
+        ".card--card.card--media > .card__content {justify-content: center;}"
+      ],
+      "settings": {
+        "collection": "all",
+        "color_scheme": "scheme-85a4b076-56b8-49a1-a2cf-474a33b10bb8",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "description": "",
+        "description_style": "body",
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "heading_size": "h2",
+        "image_ratio": "portrait",
+        "image_shape": "chevronleft",
+        "padding_bottom": 36,
+        "padding_top": 44,
+        "products_to_show": 4,
+        "quick_add": "none",
+        "show_description": false,
+        "show_rating": true,
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_view_all": false,
+        "swipe_on_mobile": true,
+        "title": "Shop Our Grain-Free Cat Food",
+        "view_all_style": "solid"
+      },
+      "type": "featured-collection"
+    },
+    "image_banner": {
+      "block_order": [
+        "heading",
+        "text_tyDnaE",
+        "text_wmNp4e",
+        "button"
+      ],
+      "blocks": {
+        "button": {
+          "settings": {
+            "button_label_1": "Get started",
+            "button_label_2": "",
+            "button_link_1": "shopify://collections/all",
+            "button_link_2": "",
+            "button_style_secondary_1": false,
+            "button_style_secondary_2": false
+          },
+          "type": "buttons"
+        },
+        "heading": {
+          "settings": {
+            "heading": "Real Cat Food",
+            "heading_size": "h0"
+          },
+          "type": "heading"
+        },
+        "text_tyDnaE": {
+          "settings": {
+            "text": "<strong>Made Simple</strong>",
+            "text_style": "subtitle"
+          },
+          "type": "text"
+        },
+        "text_wmNp4e": {
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template. Give customers details about the banner image(s) or content on the template. Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          },
+          "type": "text"
+        }
+      },
+      "settings": {
+        "color_scheme": "scheme-3",
+        "desktop_content_alignment": "left",
+        "desktop_content_position": "top-right",
+        "image": "shopify://shop_images/image_2.png",
+        "image_behavior": "none",
+        "image_height": "medium",
+        "image_overlay_opacity": 50,
+        "mobile_content_alignment": "center",
+        "show_text_below": false,
+        "show_text_box": false,
+        "stack_images_on_mobile": false
+      },
+      "type": "image-banner"
+    },
+    "image_with_text_LxLDwz": {
+      "block_order": [
+        "caption_8hrLnF",
+        "heading_epiTww",
+        "text_mrxBPg",
+        "button_XpXTWP"
+      ],
+      "blocks": {
+        "button_XpXTWP": {
+          "settings": {
+            "button_label": "Get a meal plan",
+            "button_link": "shopify://pages/how-its-work",
+            "button_style_secondary": false
+          },
+          "type": "button"
+        },
+        "caption_8hrLnF": {
+          "settings": {
+            "caption": "Why start a meal plan?",
+            "text_size": "medium",
+            "text_style": "caption-with-letter-spacing"
+          },
+          "type": "caption"
+        },
+        "heading_epiTww": {
+          "settings": {
+            "heading": "The easiest way to keep them happy & healthy. ",
+            "heading_size": "h2"
+          },
+          "type": "heading"
+        },
+        "text_mrxBPg": {
+          "settings": {
+            "text": "<ul><li>Save 10% on every order</li><li>No more schlepping to the store</li><li>Customized to your cats</li><li>Discounted shipping</li><li>Edit or cancel anytime</li></ul>",
+            "text_style": "body"
+          },
+          "type": "text"
+        }
+      },
+      "settings": {
+        "color_scheme": "scheme-3f611d37-549b-4429-8ab2-72f0602a0700",
+        "content_layout": "no-overlap",
+        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle",
+        "desktop_image_width": "small",
+        "height": "adapt",
+        "image": "shopify://shop_images/Frame_48096936.png",
+        "image_behavior": "none",
+        "layout": "image_first",
+        "mobile_content_alignment": "left",
+        "padding_bottom": 24,
+        "padding_top": 24,
+        "section_color_scheme": "scheme-85a4b076-56b8-49a1-a2cf-474a33b10bb8"
+      },
+      "type": "image-with-text"
+    },
+    "multicolumn_pTi9QG": {
+      "block_order": [
+        "column_KtBeUy",
+        "column_Wb7Nja",
+        "column_AeKQqp",
+        "column_3cBnKq"
+      ],
+      "blocks": {
+        "column_3cBnKq": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "<p>-Lora</p>",
+            "title": "Use the Starter Box to see what recipes your cats like best."
+          },
+          "type": "column"
+        },
+        "column_AeKQqp": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "<p>-Lora</p>",
+            "title": "Use the Starter Box to see what recipes your cats like best."
+          },
+          "type": "column"
+        },
+        "column_KtBeUy": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "<p>-Lora</p>",
+            "title": "Use the Starter Box to see what recipes your cats like best."
+          },
+          "type": "column"
+        },
+        "column_Wb7Nja": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "<p>-Lora</p>",
+            "title": "Use the Starter Box to see what recipes your cats like best."
+          },
+          "type": "column"
+        }
+      },
+      "settings": {
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "column_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "columns_tablet": "2",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "image_width": "full",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "swipe_on_mobile": false,
+        "title": "What our customer saying?"
+      },
+      "type": "multicolumn"
+    },
+    "multicolumn_wLzUKU": {
+      "block_order": [
+        "column_fHfTcd",
+        "column_GMnVpc",
+        "column_88QqYj",
+        "column_4iTrGw"
+      ],
+      "blocks": {
+        "column_4iTrGw": {
+          "settings": {
+            "image": "shopify://shop_images/plastic_container.png",
+            "link": "",
+            "link_label": "",
+            "text": "<p>Get your full Meal Plan box every 4 weeks at 10% off. Edit, delay, or cancel anytime.</p>",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column_88QqYj": {
+          "settings": {
+            "image": "shopify://shop_images/calendar.png",
+            "link": "",
+            "link_label": "",
+            "text": "<p>You have 2 weeks to change up your order before the first monthly box ships.</p>",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column_GMnVpc": {
+          "settings": {
+            "image": "shopify://shop_images/open_box.png",
+            "link": "",
+            "link_label": "",
+            "text": "<p>Use the Starter Box to see what recipes your cats like best.</p>",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column_fHfTcd": {
+          "settings": {
+            "image": "shopify://shop_images/notebook.png",
+            "link": "",
+            "link_label": "",
+            "text": "<p>Take a quiz about your cats to customize their Meal Plan.</p>",
+            "title": ""
+          },
+          "type": "column"
+        }
+      },
+      "settings": {
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "column_alignment": "center",
+        "columns_desktop": 4,
+        "columns_mobile": "1",
+        "columns_tablet": "2",
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "image_width": "half",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "swipe_on_mobile": false,
+        "title": "How It Works"
+      },
+      "type": "multicolumn"
+    },
+    "multirow_TVYgT4": {
+      "block_order": [
+        "row_MYXpzW",
+        "row_ezDGgt"
+      ],
+      "blocks": {
+        "row_MYXpzW": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "caption": "",
+            "heading": "",
+            "image": "shopify://shop_images/image_5.png",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          },
+          "type": "row"
+        },
+        "row_ezDGgt": {
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "caption": "",
+            "heading": "",
+            "image": "shopify://shop_images/image_5.png",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+          },
+          "type": "row"
+        }
+      },
+      "settings": {
+        "button_style": "secondary",
+        "desktop_content_alignment": "left",
+        "desktop_content_position": "middle",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "image_height": "medium",
+        "image_layout": "alternate-right",
+        "mobile_content_alignment": "left",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "row_color_scheme": "scheme-2",
+        "section_color_scheme": "scheme-2",
+        "text_style": "body"
+      },
+      "type": "multirow"
+    }
+  }
 }
