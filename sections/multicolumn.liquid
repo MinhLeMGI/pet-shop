@@ -13,6 +13,11 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+  .multicolumn-list .multicolumn-list__item {
+    border-style: solid;
+    border-width: {{ section.settings.column_border_thickness }}px;
+    border-radius: {{ section.settings.column_border_radius }}px;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -379,6 +384,36 @@
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "column_border_thickness",
+      "min": 0,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.multicolumn.settings.column_border_thickness.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "column_border_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.multicolumn.settings.column_border_opacity.label",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "column_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "t:sections.multicolumn.settings.column_border_radius.label",
+      "default": 0
     },
     {
       "type": "range",

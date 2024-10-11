@@ -240,7 +240,6 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
@@ -249,13 +248,13 @@
               {%- if customer and customer.has_avatar? -%}
                 {{ customer | avatar }}
               {%- else -%}
-                {% render 'icon-account' %}
+                {% comment %} {% render 'icon-account' %} {% endcomment %}
               {%- endif -%}
             </account-icon>
           {%- else -%}
-            {% render 'icon-account' %}
+            {% comment %} {% render 'icon-account' %} {% endcomment %}
           {%- endif -%}
-          <span class="visually-hidden">
+          {% comment %} <span class="visually-hidden"> {% endcomment %}
             {%- liquid
               if customer
                 echo 'customer.account_fallback' | t
@@ -263,9 +262,11 @@
                 echo 'customer.log_in' | t
               endif
             -%}
-          </span>
+          {% comment %} </span> {% endcomment %}
         </a>
       {%- endif -%}
+
+      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- for block in section.blocks -%}
         {%- case block.type -%}
