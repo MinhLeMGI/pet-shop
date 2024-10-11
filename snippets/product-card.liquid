@@ -1,0 +1,239 @@
+{%- assign placeholder_image = 'product-apparel-1' -%}
+
+{% liquid
+  echo card_product.image
+%}
+
+{%- if card_product and card_product != empty -%}
+  <div class="product-card">
+    <div class="product-info">
+      <article class="thumnail">
+        <img
+          srcset="
+            {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 360 -%}{{ card_product.featured_media | image_url: width: 200 }} 360w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 533 -%}{{ card_product.featured_media | image_url: width: 200 }} 533w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 720 -%}{{ card_product.featured_media | image_url: width: 200 }} 720w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 940 -%}{{ card_product.featured_media | image_url: width: 200 }} 940w,{%- endif -%}
+            {%- if card_product.featured_media.width >= 1066 -%}{{ card_product.featured_media | image_url: width: 200 }} 1066w,{%- endif -%}
+            {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
+          "
+          src="{{ card_product.featured_media | image_url: width: 200 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+          alt="{{ card_product.featured_media.alt | escape }}"
+          class="image"
+          width="200"
+          height="200"
+        >
+      </article>
+      <div class="product">
+        <p class="product-name">{{ card_product.title }}</p>
+        <p class="product-price">{{ card_product.price | money_with_currency }}</p>
+      </div>
+    </div>
+
+    <product-form data-section-id="{{ section.id }}">
+      {%- form 'product',
+        card_product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+      -%}
+        <input
+          type="hidden"
+          name="id"
+          value="{{ card_product.selected_or_first_available_variant.id }}"
+          class="product-variant-id"
+          {% if card_product.selected_or_first_available_variant.available == false %}
+            disabled
+          {% endif %}
+        >
+
+        <div class="add-to-cart">
+          <div class="quantity-selector">
+            <button type="button" class="quantity-decrease" aria-label="Decrease quantity" onclick="updateQuantity(-1, '{{ card_product.id }}-quantity')">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.40088 12.7242H20.4506" stroke="black" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <input
+              type="number"
+              id="{{ card_product.id }}-quantity"
+              name="quantity"
+              value="1"
+              min="1"
+              class="quantity-input"
+              aria-label="Quantity"
+            >
+            <button type="button" class="quantity-increase" aria-label="Increase quantity" onclick="updateQuantity(1, '{{ card_product.id }}-quantity')">
+              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4753 3.72415C13.0276 3.72415 13.4753 4.17187 13.4753 4.72415V11.7242H20.4753C21.0276 11.7242 21.4753 12.1719 21.4753 12.7242C21.4753 13.2765 21.0276 13.7242 20.4753 13.7242H13.4753V20.7242C13.4753 21.2765 13.0276 21.7242 12.4753 21.7242C11.923 21.7242 11.4753 21.2765 11.4753 20.7242V13.7242H4.47534C3.92306 13.7242 3.47534 13.2765 3.47534 12.7242C3.47534 12.1719 3.92306 11.7242 4.47534 11.7242H11.4753V4.72415C11.4753 4.17187 11.923 3.72415 12.4753 3.72415Z" fill="black"/>
+              </svg>
+            </button>
+          </div>
+
+          <button
+            id="{{ product_form_id }}-submit"
+            type="submit"
+            name="add"
+            class="btn-add-cart"
+            aria-haspopup="dialog"
+            aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
+            aria-live="polite"
+            data-sold-out-message="true"
+            {% if card_product.selected_or_first_available_variant.available == false %}
+              disabled
+            {% endif %}
+          >
+            <span>
+              {%- if card_product.selected_or_first_available_variant.available -%}
+                {{ 'products.product.add_to_cart' | t }}
+              {%- else -%}
+                {{ 'products.product.sold_out' | t }}
+              {%- endif -%}
+            </span>
+            <span class="sold-out-message hidden">
+              {{ 'products.product.sold_out' | t }}
+            </span>
+            {%- if horizontal_quick_add -%}
+              <span class="icon-wrap">{% render 'icon-plus' %}</span>
+            {%- endif -%}
+            {%- render 'loading-spinner' -%}
+          </button>
+        </div>
+      {%- endform -%}
+    </product-form>
+
+    <script>
+      function updateQuantity(change, id) {
+        var quantityInput = document.getElementById(id);
+        var currentValue = parseInt(quantityInput.value);
+        var newValue = currentValue + change;
+
+        if (newValue < 1) {
+          newValue = 1;
+        }
+        quantityInput.value = newValue;
+      }
+    </script>
+  </div>
+{% else %}
+  <div class="product-card">
+    <div class="product-info">
+      <article class="thumnail">
+        <div style="max-width: 200px; position: relative;">
+          {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+        <button class="btn-favorite" aria-label="favorite">
+          <svg
+            width="20px"
+            height="20px"
+            class=""
+            style="min-width: 20px"
+            viewBox="0 0 378.94 378.94"
+            fill="#000"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M348.151 54.514c-19.883-19.884-46.315-30.826-74.435-30.826-28.124 0-54.559 10.942-74.449 30.826l-9.798 9.8-9.798-9.8c-19.884-19.884-46.325-30.826-74.443-30.826-28.117 0-54.56 10.942-74.442 30.826-41.049 41.053-41.049 107.848 0 148.885l147.09 147.091a16.036 16.036 0 0 0 8.527 4.461 16.29 16.29 0 0 0 3.161.303c4.161 0 8.329-1.587 11.498-4.764l147.09-147.091c41.051-41.037 41.051-107.832-.001-148.885zm-22.996 125.89L189.47 316.091 53.782 180.404c-28.368-28.364-28.368-74.514 0-102.893 13.741-13.739 32.017-21.296 51.446-21.296 19.431 0 37.702 7.557 51.438 21.296l21.305 21.312c6.107 6.098 16.897 6.098 23.003 0l21.297-21.312c13.737-13.739 32.009-21.296 51.446-21.296 19.431 0 37.701 7.557 51.438 21.296 28.371 28.379 28.371 74.528 0 102.893z"></path>
+          </svg>
+        </button>
+      </article>
+    </div>
+    <div class="product">
+      <p class="product-name">{{ 'Product Name' }}</p>
+      <p class="product-price">{{ 0 | money_with_currency }}</p>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .product-card {
+    padding: 32px 64px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;ư
+  }
+
+  .product-card:hover {
+    box-shadow: 0 0 0 2px #80beff;
+  }
+
+  .product-card .product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .thumnail {
+    margin: 0px auto;
+  }
+
+  .product .product-name {
+    margin: 0px 0px 12px 0px;
+    color: #000;
+    text-align: center;
+    font-family: Lora;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .product .product-price {
+    margin: 0px;
+    color: #757575;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .placeholder-svg {
+    width: 240px;
+    height: 160px;
+    max-height: 160px;
+    height: auto;
+  }
+  .add-to-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  .add-to-cart .quantity-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .add-to-cart .quantity-selector > button {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+  }
+  .add-to-cart .quantity-selector > input {
+    border: none;
+    background-color: transparent;
+    max-width: 60px;
+    text-align: center;
+  }
+  .add-to-cart > .btn-add-cart {
+    border-radius: 6px;
+    background: #8fb7e1;
+    padding: 10px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+</style>
