@@ -127,13 +127,19 @@
 }
 
 @media screen and (min-width: 768px) {
+  .multicolumn-list__item {
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    padding-left: var(--padding-left);
+    padding-right: var(--padding-right);
+  }
   .multicolumn-list.slider {
     padding: 0;
   }
 
   .multicolumn-list__item,
   .grid--4-col-desktop .multicolumn-list__item {
-    padding-bottom: 0;
+    /* padding-bottom: 0; */
   }
 
   .background-none .grid--2-col-tablet .multicolumn-list__item {

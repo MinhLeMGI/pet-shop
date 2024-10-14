@@ -2,6 +2,10 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  .section-{{ section.id }} .multicolumn-list__item {
+    border: {{ section.settings.column_border_thickness }}px #333 solid;
+    border-radius: {{ section.settings.column_border_radius }}px;
+  }
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -23,7 +27,7 @@
   endif
 -%}
 
-<div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
+<div class="section-{{ section.id }} multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
   <div
     class="page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     {% if settings.animations_reveal_on_scroll %}
@@ -73,7 +77,7 @@
             {{ block.shopify_attributes }}
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
-              style="--animation-order: {{ forloop.index }}; border: {{ section.settings.column_border_thickness }}px #333 solid; border-radius: {{ section.settings.column_border_radius }}px;"
+              style="--animation-order: {{ forloop.index }}; --padding-top: {{ block.settings.padding_top }}px; --padding-bottom: {{ block.settings.padding_bottom }}px; --padding-left: {{ block.settings.padding_left }}px; --padding-right: {{ block.settings.padding_right }}px;"
             {% endif %}
           >
             <div class="multicolumn-card content-container">
