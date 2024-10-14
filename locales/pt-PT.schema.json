@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "Secção preenchimento",
         "padding_top": "Preenchimento superior",
-        "padding_bottom": "Preenchimento inferior"
+        "padding_bottom": "Preenchimento inferior",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "Espaçamento",
       "colors": {

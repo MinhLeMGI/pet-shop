@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "Vùng đệm mục",
         "padding_top": "Vùng đệm trên cùng",
-        "padding_bottom": "Vùng đệm dưới cùng"
+        "padding_bottom": "Vùng đệm dưới cùng",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "Khoảng cách",
       "colors": {

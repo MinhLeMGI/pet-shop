@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "區段邊框間距",
         "padding_top": "頂端邊框間距",
-        "padding_bottom": "底部邊框間距"
+        "padding_bottom": "底部邊框間距",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "間距",
       "colors": {

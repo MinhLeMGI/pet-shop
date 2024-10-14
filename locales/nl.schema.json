@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "Opvulling voor sectie",
         "padding_top": "Opvulling boven",
-        "padding_bottom": "Opvulling onder"
+        "padding_bottom": "Opvulling onder",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "Afstand",
       "colors": {

@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "Seksjonsmarg",
         "padding_top": "Toppmarg",
-        "padding_bottom": "Bunnmarg"
+        "padding_bottom": "Bunnmarg",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "Mellomrom",
       "colors": {

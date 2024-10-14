@@ -393,7 +393,9 @@
       "padding": {
         "section_padding_heading": "Vnitřní okraj sekce",
         "padding_top": "Horní vnitřní okraj",
-        "padding_bottom": "Dolní vnitřní okraj"
+        "padding_bottom": "Dolní vnitřní okraj",
+        "padding_left": "Left padding",
+        "padding_right": "Right padding"
       },
       "spacing": "Rozestupy",
       "colors": {
