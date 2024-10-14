@@ -41,8 +41,9 @@
       "settings": {
         "color_scheme": "scheme-85a4b076-56b8-49a1-a2cf-474a33b10bb8",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 72,
+        "padding_bottom": 52,
+        "desktop_content_alignment": "left"
       }
     },
     "footer": {
