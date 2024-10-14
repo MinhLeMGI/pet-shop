@@ -45,7 +45,12 @@
           }
         }
       },
-      "block_order": ["heading", "text_tyDnaE", "text_wmNp4e", "button"],
+      "block_order": [
+        "heading",
+        "text_tyDnaE",
+        "text_wmNp4e",
+        "button"
+      ],
       "settings": {
         "image": "shopify://shop_images/image_2.png",
         "image_overlay_opacity": 50,
@@ -104,7 +109,12 @@
           }
         }
       },
-      "block_order": ["column_fHfTcd", "column_GMnVpc", "column_88QqYj", "column_4iTrGw"],
+      "block_order": [
+        "column_fHfTcd",
+        "column_GMnVpc",
+        "column_88QqYj",
+        "column_4iTrGw"
+      ],
       "settings": {
         "title": "How It Works",
         "heading_size": "h1",
@@ -116,14 +126,14 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "scheme-2",
+        "column_border_thickness": 0,
+        "column_border_opacity": 100,
+        "column_border_radius": 0,
         "columns_tablet": "2",
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "column_border_thickness": 0,
-        "column_border_opacity": 100,
-        "column_border_radius": 0
+        "padding_bottom": 36
       }
     },
     "image_with_text_LxLDwz": {
@@ -160,7 +170,12 @@
           }
         }
       },
-      "block_order": ["caption_8hrLnF", "heading_epiTww", "text_mrxBPg", "button_XpXTWP"],
+      "block_order": [
+        "caption_8hrLnF",
+        "heading_epiTww",
+        "text_mrxBPg",
+        "button_XpXTWP"
+      ],
       "settings": {
         "image": "shopify://shop_images/Frame_48096936.png",
         "height": "adapt",
@@ -179,7 +194,9 @@
     },
     "featured_collection": {
       "type": "featured-collection",
-      "custom_css": [".card--card.card--media > .card__content {justify-content: center;}"],
+      "custom_css": [
+        ".card--card.card--media > .card__content {justify-content: center;}"
+      ],
       "settings": {
         "title": "Shop Our Grain-Free Cat Food",
         "heading_size": "h2",
@@ -246,7 +263,12 @@
           }
         }
       },
-      "block_order": ["column_KtBeUy", "column_Wb7Nja", "column_AeKQqp", "column_3cBnKq"],
+      "block_order": [
+        "column_KtBeUy",
+        "column_Wb7Nja",
+        "column_AeKQqp",
+        "column_3cBnKq"
+      ],
       "settings": {
         "title": "What our customer saying?",
         "heading_size": "h1",
@@ -258,14 +280,14 @@
         "button_label": "",
         "button_link": "",
         "color_scheme": "scheme-2",
+        "column_border_thickness": 1,
+        "column_border_opacity": 100,
+        "column_border_radius": 8,
         "columns_tablet": "2",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36,
-        "column_border_thickness": 2,
-        "column_border_opacity": 100,
-        "column_border_radius": 8
+        "padding_bottom": 36
       }
     },
     "multirow_TVYgT4": {
@@ -294,7 +316,10 @@
           }
         }
       },
-      "block_order": ["row_MYXpzW", "row_ezDGgt"],
+      "block_order": [
+        "row_MYXpzW",
+        "row_ezDGgt"
+      ],
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
