@@ -1,12 +1,27 @@
 .newsletter__wrapper {
   padding-right: calc(4rem / var(--font-body-scale));
   padding-left: calc(4rem / var(--font-body-scale));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
   .newsletter__wrapper {
     padding-right: 9rem;
     padding-left: 9rem;
+  }
+  .newsletter__wrapper.item-left {
+    align-items: flex-start;
+  }
+  .newsletter__wrapper.item-right {
+    align-items: flex-end;
+  }
+  .newsletter__subheading.newsletter__subheading-left {
+    margin-left: 0;
+  }
+  .newsletter__subheading.newsletter__subheading-right {
+    margin-right: 0;
   }
 }
 
