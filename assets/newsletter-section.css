@@ -57,6 +57,10 @@
   width: fit-content;
 }
 
+.newsletter-form__field-wrapper .field-custom .field__label {
+  left: 0px;
+}
+
 @media screen and (min-width: 768px) {
   .newsletter__button {
     flex-shrink: 0;
