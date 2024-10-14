@@ -263,9 +263,9 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36,
-        "column_border_thickness": 0,
+        "column_border_thickness": 2,
         "column_border_opacity": 100,
-        "column_border_radius": 0
+        "column_border_radius": 8
       }
     },
     "multirow_TVYgT4": {
