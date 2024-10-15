@@ -4,6 +4,9 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+    .image-with-text.image-with-text-{{ section.id }}, .image-with-text.image-with-text-{{ section.id }}:after {
+      height: 50%;
+    }
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
@@ -12,18 +15,41 @@
       align-items: center;
       justify-content: center;
     }
-    .custom-slideshow-{{ section.id }} .slideshow.banner {
-      width: 50%;
+    .custom-slideshow-{{ section.id }} .slideshow.banner, .slideshow.banner:after {
+      width: 100%;
       height: 50%;
+      min-height: 300px;
+      margin-top: 20px;
+    }
+    .custom-slideshow-{{ section.id }} .slideshow__media {
+      background-color: transparent;
     }
     #Slider-{{ section.id }} .slider__slide {
       width: 100%;
+      height: 50%;
+      min-height: 300px;
     }
 
     @media screen and (min-width: 768px) {
+      .custom-slideshow-{{ section.id }} .slideshow.banner, .slideshow.banner:after {
+        width: 50%;
+        margin-top: 0;
+      }
+      .section-{{ section.id }} .image-with-text__grid {
+        align-items: center;
+        justify-content: center;
+      }
+      .image-with-text-{{ section.id }} .image-with-text__text-item.grid__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       .section-{{ section.id }}-padding {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+      #Slider-{{ section.id }} .banner--medium:not(.banner--adapt) {
+        min-height: 300px;
       }
     }
     {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
@@ -98,8 +124,24 @@
 <div class="multirow section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
   <div class="multirow__inner page-width">
     {%- for block in section.blocks -%}
+      {% assign selected_images = '' %}
+
+      {% if block.type == 'row' %}
+        {% if block.settings['image-1'] %}
+          {% assign selected_images = selected_images | append: block.settings['image-1'] | append: ',' %}
+        {% endif %}
+        {% if block.settings['image-2'] %}
+          {% assign selected_images = selected_images | append: block.settings['image-2'] | append: ',' %}
+        {% endif %}
+        {% if block.settings['image-3'] %}
+          {% assign selected_images = selected_images | append: block.settings['image-3'] | append: ',' %}
+        {% endif %}
+      {% endif %}
+
+      {% assign selected_images_array = selected_images | split: ',' %}
+      {% assign selected_images_array = selected_images_array | uniq %}
       <div
-        class="image-with-text isolate{{ borders_class }}{{ corners_class }}{{ padding_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        class="image-with-text image-with-text-{{ section.id }} isolate{{ borders_class }}{{ corners_class }}{{ padding_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ block.shopify_attributes }}
       >
         <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.image_layout contains 'alternate' %}{% cycle odd_class, even_class %}{% else %}{{ odd_class }}{% endif %}">
