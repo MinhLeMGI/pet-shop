@@ -153,8 +153,10 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
-                  {%- when 'custom-section' -%}
-                    {% section 'custom-section' %}
+                    {% comment %}
+                      {%- when 'custom-section' -%}
+                      {% section 'custom-section' %}
+                    {% endcomment %}
                 {%- endcase -%}
               </div>
             {%- endfor -%}
