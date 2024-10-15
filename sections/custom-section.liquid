@@ -8,6 +8,17 @@
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+    .custom-slideshow-{{ section.id }} {
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-slideshow-{{ section.id }} .slideshow.banner {
+      width: 50%;
+      height: 50%;
+    }
+    #Slider-{{ section.id }} .slider__slide {
+      width: 100%;
+    }
 
     @media screen and (min-width: 768px) {
       .section-{{ section.id }}-padding {
@@ -65,6 +76,25 @@
   endunless
 -%}
 
+{% assign selected_images = '' %}
+
+{% for block in section.blocks %}
+  {% if block.type == 'row' %}
+    {% if block.settings['image-1'] %}
+      {% assign selected_images = selected_images | append: block.settings['image-1'] | append: ',' %}
+    {% endif %}
+    {% if block.settings['image-2'] %}
+      {% assign selected_images = selected_images | append: block.settings['image-2'] | append: ',' %}
+    {% endif %}
+    {% if block.settings['image-3'] %}
+      {% assign selected_images = selected_images | append: block.settings['image-3'] | append: ',' %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% assign selected_images_array = selected_images | split: ',' %}
+{% assign selected_images_array = selected_images_array | uniq %}
+
 <div class="multirow section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
   <div class="multirow__inner page-width">
     {%- for block in section.blocks -%}
@@ -97,12 +127,12 @@
           </div>
           <div class="image-with-text__text-item grid__item">
             <slideshow-component
-              class="slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
+              class="custom-slideshow-{{ section.id }} slider-mobile-gutter{% if section.settings.layout == 'grid' %} page-width{% endif %}{% if section.settings.show_text_below %} mobile-text-below{% endif %}"
               role="region"
               aria-roledescription="{{ 'sections.slideshow.carousel' | t }}"
               aria-label="{{ section.settings.accessibility_info | escape }}"
             >
-              {%- if section.settings.auto_rotate and section.blocks.size > 1 -%}
+              {%- if selected_images_array.size > 1 -%}
                 <div class="slideshow__controls slideshow__controls--top slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
                   <button
                     type="button"
@@ -113,21 +143,21 @@
                   >
                     {% render 'icon-caret' %}
                   </button>
-                  <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
-                    {%- if section.settings.slider_visual == 'counter' -%}
+                  <div class="slider-counter slider-counter--{{ block.settings.slider_visual }}{% if block.settings.slider_visual == 'counter' or block.settings.slider_visual == 'numbers' %} caption{% endif %}">
+                    {%- if block.settings.slider_visual == 'counter' -%}
                       <span class="slider-counter--current">1</span>
                       <span aria-hidden="true"> / </span>
                       <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-                      <span class="slider-counter--total">{{ section.blocks.size }}</span>
+                      <span class="slider-counter--total">{{ selected_images_array.size }}</span>
                     {%- else -%}
                       <div class="slideshow__control-wrapper">
-                        {%- for block in section.blocks -%}
+                        {%- for image_selected in selected_images_array -%}
                           <button
-                            class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                            class="slider-counter__link slider-counter__link--{{ block.settings.slider_visual }} link"
                             aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                             aria-controls="Slider-{{ section.id }}"
                           >
-                            {%- if section.settings.slider_visual == 'numbers' -%}
+                            {%- if block.settings.slider_visual == 'numbers' -%}
                               {{ forloop.index -}}
                             {%- else -%}
                               <span class="dot"></span>
@@ -161,19 +191,14 @@
               {%- endif -%}
 
               <div
-                class="slideshow banner banner--{{ section.settings.slide_height }} grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if section.blocks.first.settings.image == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+                class="slideshow banner banner--medium grid grid--1-col slider slider--everywhere{% if section.settings.show_text_below %} banner--mobile-bottom{% endif %}{% if selected_images_array.first == blank %} slideshow--placeholder{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
                 id="Slider-{{ section.id }}"
                 aria-live="polite"
                 aria-atomic="true"
-                data-autoplay="{{ false }}"
-                data-speed="{{ -1 }}"
+                data-autoplay="false"
+                data-speed="5"
               >
-                {%- for block in section.blocks -%}
-                  <style>
-                    #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
-                      opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
-                    }
-                  </style>
+                {%- for image_selected in selected_images_array -%}
                   <div
                     class="slideshow__slide grid__item grid--1-col slider__slide"
                     id="Slide-{{ section.id }}-{{ forloop.index }}"
@@ -183,10 +208,11 @@
                     aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                     tabindex="-1"
                   >
-                    <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-                      {%- if block.settings.image -%}
+                    {%- assign image_setting = 'image-' | append: forloop.index -%}
+                    <div class="slideshow__media banner__media media{% if block.settings[image_setting] == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+                      {%- if block.settings[image_setting] != blank -%}
                         {%- liquid
-                          assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
+                          assign height = block.settings[image_setting].width | divided_by: block.settings[image_setting].aspect_ratio | round
                           if section.settings.image_behavior == 'ambient'
                             assign sizes = '120vw'
                             assign widths = '450, 660, 900, 1320, 1800, 2136, 2400, 3600, 7680'
@@ -201,13 +227,13 @@
                         -%}
                         {%- if forloop.first %}
                           {{
-                            block.settings.image
+                            block.settings[image_setting]
                             | image_url: width: 3840
                             | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority
                           }}
                         {%- else -%}
                           {{
-                            block.settings.image
+                            block.settings[image_setting]
                             | image_url: width: 3840
                             | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
                           }}
@@ -221,14 +247,11 @@
                         {%- endif -%}
                       {%- endif -%}
                     </div>
-                    <div
-                      class="slideshow__text-wrapper banner__content banner__content--{{ block.settings.box_align }} page-width{% if block.settings.show_text_box == false %} banner--desktop-transparent{% endif %}{% if settings.animations_reveal_on_scroll and forloop.index == 1 %} scroll-trigger animate--slide-in{% endif %}"
-                    ></div>
                   </div>
                 {%- endfor -%}
               </div>
 
-              {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
+              {%- if selected_images_array.size > 1 and section.settings.auto_rotate == false -%}
                 <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
                   <button
                     type="button"
@@ -239,21 +262,21 @@
                   >
                     {% render 'icon-caret' %}
                   </button>
-                  <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
-                    {%- if section.settings.slider_visual == 'counter' -%}
+                  <div class="slider-counter slider-counter--{{ block.settings.slider_visual }}{% if block.settings.slider_visual == 'counter' or block.settings.slider_visual == 'numbers' %} caption{% endif %}">
+                    {%- if block.settings.slider_visual == 'counter' -%}
                       <span class="slider-counter--current">1</span>
                       <span aria-hidden="true"> / </span>
                       <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-                      <span class="slider-counter--total">{{ section.blocks.size }}</span>
+                      <span class="slider-counter--total">{{ selected_images_array.size }}</span>
                     {%- else -%}
                       <div class="slideshow__control-wrapper">
-                        {%- for block in section.blocks -%}
+                        {%- for image_selected in selected_images_array -%}
                           <button
-                            class="slider-counter__link slider-counter__link--{{ section.settings.slider_visual }} link"
+                            class="slider-counter__link slider-counter__link--{{ block.settings.slider_visual }} link"
                             aria-label="{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                             aria-controls="Slider-{{ section.id }}"
                           >
-                            {%- if section.settings.slider_visual == 'numbers' -%}
+                            {%- if block.settings.slider_visual == 'numbers' -%}
                               {{ forloop.index -}}
                             {%- else -%}
                               <span class="dot"></span>
@@ -292,10 +315,6 @@
     {%- endfor -%}
   </div>
 </div>
-
-{%- if request.design_mode -%}
-  <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
 
 {% schema %}
 {
