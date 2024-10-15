@@ -153,6 +153,8 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
+                  {%- when 'custom-section' -%}
+                    {% section 'custom-section' %}
                 {%- endcase -%}
               </div>
             {%- endfor -%}
@@ -420,6 +422,10 @@
           "default": "center"
         }
       ]
+    },
+    {
+      "type": "custom-section",
+      "name": "Custom Section"
     }
   ],
   "settings": [
