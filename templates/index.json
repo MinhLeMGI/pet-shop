@@ -334,7 +334,7 @@
             "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
             "button_label": "Button label",
             "button_link": "",
-            "slider_visual": "counter",
+            "slider_visual": "dots",
             "image-1": "shopify://shop_images/image_6.png",
             "image-2": "shopify://shop_images/4073C_TTL_3e212806-7ad8-4d72-b7a2-cb92df2b5ce5.png",
             "image-3": "shopify://shop_images/800x800px-Pack-2.png"
