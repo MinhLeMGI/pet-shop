@@ -45,12 +45,7 @@
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text_tyDnaE",
-        "text_wmNp4e",
-        "button"
-      ],
+      "block_order": ["heading", "text_tyDnaE", "text_wmNp4e", "button"],
       "settings": {
         "image": "shopify://shop_images/image_2.png",
         "image_overlay_opacity": 50,
@@ -125,15 +120,11 @@
           }
         }
       },
-      "block_order": [
-        "column_fHfTcd",
-        "column_GMnVpc",
-        "column_88QqYj",
-        "column_4iTrGw"
-      ],
+      "block_order": ["column_fHfTcd", "column_GMnVpc", "column_88QqYj", "column_4iTrGw"],
       "settings": {
         "title": "How It Works",
         "heading_size": "h1",
+        "heading_alignment": "center",
         "image_width": "half",
         "image_ratio": "adapt",
         "columns_desktop": 4,
@@ -186,12 +177,7 @@
           }
         }
       },
-      "block_order": [
-        "caption_8hrLnF",
-        "heading_epiTww",
-        "text_mrxBPg",
-        "button_XpXTWP"
-      ],
+      "block_order": ["caption_8hrLnF", "heading_epiTww", "text_mrxBPg", "button_XpXTWP"],
       "settings": {
         "image": "shopify://shop_images/Frame_48096936.png",
         "height": "adapt",
@@ -210,9 +196,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
-      "custom_css": [
-        ".card--card.card--media > .card__content {justify-content: center;}"
-      ],
+      "custom_css": [".card--card.card--media > .card__content {justify-content: center;}"],
       "settings": {
         "title": "Shop Our Grain-Free Cat Food",
         "heading_size": "h2",
@@ -295,15 +279,11 @@
           }
         }
       },
-      "block_order": [
-        "column_KtBeUy",
-        "column_Wb7Nja",
-        "column_AeKQqp",
-        "column_3cBnKq"
-      ],
+      "block_order": ["column_KtBeUy", "column_Wb7Nja", "column_AeKQqp", "column_3cBnKq"],
       "settings": {
         "title": "What our customer saying?",
         "heading_size": "h1",
+        "heading_alignment": "center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
@@ -356,10 +336,7 @@
           }
         }
       },
-      "block_order": [
-        "row_YCwPQf",
-        "row_kJKQxh"
-      ],
+      "block_order": ["row_YCwPQf", "row_kJKQxh"],
       "settings": {
         "image_height": "medium",
         "desktop_image_width": "medium",
