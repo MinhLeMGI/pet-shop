@@ -305,7 +305,7 @@
       "settings": {
         "title": "What our customer saying?",
         "heading_size": "h1",
-        "heading_alignment": "left",
+        "heading_alignment": "center",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 4,
