@@ -420,6 +420,18 @@
           "label": "特大型"
         }
       },
+      "heading_alignment": {
+        "label": "Heading alignment",
+        "options__1": {
+          "label": "Left"
+        },
+        "options__2": {
+          "label": "Center"
+        },
+        "options__3": {
+          "label": "Right"
+        }
+      },
       "image_shape": {
         "options__1": {
           "label": "預設"
