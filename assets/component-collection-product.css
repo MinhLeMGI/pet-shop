@@ -1,0 +1,28 @@
+.product-display-grid {
+  list-style-type: none;
+  display: grid;
+  gap: 16px;
+  padding-left: 0;
+}
+
+.product-item {
+  width: 100%;
+}
+
+@media screen and (max-width: 879px) {
+  .facets-hide {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .product-display-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 480px) and (max-width: 1199px) {
+  .product-display-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
