@@ -47,45 +47,46 @@
             disabled
           {% endif %}
         >
-
         <div class="add-to-cart">
-          <div class="quantity-selector">
-            <button
-              type="button"
-              class="quantity-decrease"
-              aria-label="Decrease quantity"
-              onclick="updateQuantity(-1, '{{ card_product.id }}-quantity')"
-            >
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4.40088 12.7242H20.4506" stroke="black" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </button>
-            <input
-              type="number"
-              id="{{ card_product.id }}-quantity"
-              name="quantity"
-              value="1"
-              min="1"
-              class="quantity-input"
-              aria-label="Quantity"
-            >
-            <button
-              type="button"
-              class="quantity-increase"
-              aria-label="Increase quantity"
-              onclick="updateQuantity(1, '{{ card_product.id }}-quantity')"
-            >
-              <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4753 3.72415C13.0276 3.72415 13.4753 4.17187 13.4753 4.72415V11.7242H20.4753C21.0276 11.7242 21.4753 12.1719 21.4753 12.7242C21.4753 13.2765 21.0276 13.7242 20.4753 13.7242H13.4753V20.7242C13.4753 21.2765 13.0276 21.7242 12.4753 21.7242C11.923 21.7242 11.4753 21.2765 11.4753 20.7242V13.7242H4.47534C3.92306 13.7242 3.47534 13.2765 3.47534 12.7242C3.47534 12.1719 3.92306 11.7242 4.47534 11.7242H11.4753V4.72415C11.4753 4.17187 11.923 3.72415 12.4753 3.72415Z" fill="black"/>
-              </svg>
-            </button>
-          </div>
+          {% if card_product.selected_or_first_available_variant.available %}
+            <div class="quantity-selector">
+              <button
+                type="button"
+                class="quantity-decrease"
+                aria-label="Decrease quantity"
+                onclick="updateQuantity(-1, '{{ card_product.id }}-quantity')"
+              >
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.40088 12.7242H20.4506" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <input
+                type="number"
+                id="{{ card_product.id }}-quantity"
+                name="quantity"
+                value="1"
+                min="1"
+                class="quantity-input"
+                aria-label="Quantity"
+              >
+              <button
+                type="button"
+                class="quantity-increase"
+                aria-label="Increase quantity"
+                onclick="updateQuantity(1, '{{ card_product.id }}-quantity')"
+              >
+                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4753 3.72415C13.0276 3.72415 13.4753 4.17187 13.4753 4.72415V11.7242H20.4753C21.0276 11.7242 21.4753 12.1719 21.4753 12.7242C21.4753 13.2765 21.0276 13.7242 20.4753 13.7242H13.4753V20.7242C13.4753 21.2765 13.0276 21.7242 12.4753 21.7242C11.923 21.7242 11.4753 21.2765 11.4753 20.7242V13.7242H4.47534C3.92306 13.7242 3.47534 13.2765 3.47534 12.7242C3.47534 12.1719 3.92306 11.7242 4.47534 11.7242H11.4753V4.72415C11.4753 4.17187 11.923 3.72415 12.4753 3.72415Z" fill="black"/>
+                </svg>
+              </button>
+            </div>
+          {% endif %}
 
           <button
             id="{{ product_form_id }}-submit"
-            type="button"
+            type="submit"
             name="add"
-            class="btn-add-cart"
+            class="quick-add__submit btn-add-cart"
             aria-haspopup="dialog"
             aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
             aria-live="polite"
@@ -93,7 +94,6 @@
             {% if card_product.selected_or_first_available_variant.available == false %}
               disabled
             {% endif %}
-            onclick="adToCart('{{ form_id }}', '{{ card_product.variants[0].id }}')"
           >
             <span>
               {%- if card_product.selected_or_first_available_variant.available -%}
@@ -107,6 +107,7 @@
             </span>
             {%- if horizontal_quick_add -%}
               <span class="icon-wrap">{% render 'icon-plus' %}</span>
+              AAA
             {%- endif -%}
             {%- render 'loading-spinner' -%}
           </button>
@@ -124,43 +125,6 @@
           newValue = 1;
         }
         quantityInput.value = newValue;
-      }
-
-      async function adToCart(id, variantId) {
-        var form = document.getElementById(id);
-        let cartCountBubble = document.querySelector('#cart-icon-bubble .cart-count-bubble');
-        const itemCount = Number(document.querySelector('#cart-icon-bubble .cart-count-bubble span')?.innerText ?? 0);
-        const quantity = Number(form.elements['quantity'].value);
-        const response = await fetch('/cart/add.js', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            items: [
-              {
-                id: Number(variantId),
-                quantity: Number(form.elements['quantity'].value),
-              },
-            ],
-          }),
-        });
-        if (response) {
-          if (!cartCountBubble) {
-            cartCountBubble = document.createElement('div');
-            cartCountBubble.classList.add('cart-count-bubble');
-            let sp = document.createElement('span');
-            sp.setAttribute('aria-hidden', 'true');
-            sp.innerText = 2;
-            let sp2 = document.createElement('span');
-            sp2.classList.add('visually-hidden');
-            sp2.innerText = '2 item';
-            cartCountBubble.appendChild(sp);
-            cartCountBubble.appendChild(sp2);
-            document.querySelector('#cart-icon-bubble').appendChild(cartCountBubble);
-          }
-          document.querySelector('#cart-icon-bubble .cart-count-bubble span').innerText = `${quantity + itemCount}`;
-        }
       }
     </script>
   </div>
