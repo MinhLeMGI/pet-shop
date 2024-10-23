@@ -363,3 +363,92 @@ class FacetRemove extends HTMLElement {
 }
 
 customElements.define('facet-remove', FacetRemove);
+
+class PriceRangeCustom extends HTMLElement {
+  constructor() {
+    super();
+    const inputs = this.querySelectorAll('input');
+    inputs.forEach((element) => {
+      element.addEventListener('change', this.onRangeChange.bind(this));
+      element.addEventListener('keydown', this.onKeyDown.bind(this));
+    });
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+    minInput?.addEventListener('input', this.onRangeInputMin.bind(this));
+    maxInput?.addEventListener('input', this.onRangeInputMax.bind(this));
+    this.setMinAndMaxValues();
+    this.updateSliderTrack();
+  }
+
+  onRangeChange(event) {
+    this.adjustToValidValues(event.currentTarget);
+    this.setMinAndMaxValues();
+  }
+
+  onRangeInputMin(event) {
+    const inputs = this.querySelectorAll('input');
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+    if (minInput && maxInput) {
+      const value = Number((event.target).value);
+      if (value + 1000 <= maxInput.value) {
+        this.updateSliderTrack();
+        // minInput.value = value;
+      } else {
+        minInput.value = Number(maxInput?.value) - 1000;
+      }
+    }
+  }
+
+  onRangeInputMax(event) {
+    const inputs = this.querySelectorAll('input');
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+    if (minInput && maxInput) {
+      const value = Number((event.target).value);
+      if (value - 1000 >= minInput.value) {
+        this.updateSliderTrack();
+        // minInput.value = value;
+      } else {
+        maxInput.value = Number(minInput?.value) + 1000;
+      }
+    }
+  }
+
+  onKeyDown(event) {
+    if (event.metaKey) return;
+
+    const pattern = /[0-9]|\.|,|'| |Tab|Backspace|Enter|ArrowUp|ArrowDown|ArrowLeft|ArrowRight|Delete|Escape/;
+    if (!event.key.match(pattern)) event.preventDefault();
+  }
+
+  setMinAndMaxValues() {
+    const inputs = this.querySelectorAll('input');
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+    if (maxInput.value) minInput.setAttribute('data-max', maxInput.value);
+    if (minInput.value) maxInput.setAttribute('data-min', minInput.value);
+    if (minInput.value === '') maxInput.setAttribute('data-min', 0);
+    if (maxInput.value === '') minInput.setAttribute('data-max', maxInput.getAttribute('data-max'));
+  }
+
+  adjustToValidValues(input) {
+    const value = Number(input.value);
+    const min = Number(input.getAttribute('data-min'));
+    const max = Number(input.getAttribute('data-max'));
+    if (value < min) input.value = min;
+    if (value > max) input.value = max;
+  }
+
+  updateSliderTrack() {
+    const inputs = this.querySelectorAll('input');
+    const minInput = inputs[0];
+    const maxInput = inputs[1];
+    const percent1 = (Number(minInput.value) / Number(minInput.max)) * 100;
+    const percent2 = (Number(maxInput.value) / Number(maxInput.max)) * 100;
+    const sliderTrack = this.querySelector(".slider-track");
+    sliderTrack.style.background = `linear-gradient(to right, #d0d7f6 ${percent1}%, #8FB7E1 ${percent1}%, #8FB7E1 ${percent2}%, #d0d7f6 ${percent2}%)`;
+  }
+}
+
+customElements.define('price-range-custom', PriceRangeCustom);

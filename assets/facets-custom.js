@@ -328,13 +328,13 @@ class PriceRange extends HTMLElement {
     if (maxInput.value) minInput.setAttribute('data-max', maxInput.value);
     if (minInput.value) maxInput.setAttribute('data-min', minInput.value);
     if (minInput.value === '') maxInput.setAttribute('data-min', 0);
-    if (maxInput.value === '') minInput.setAttribute('data-max', maxInput.getAttribute('data-max'));
+    if (maxInput.value === '') minInput.setAttribute('data-max', maxInput.getAttribute('data-max')?.replace(".", ""));
   }
 
   adjustToValidValues(input) {
     const value = Number(input.value);
-    const min = Number(input.getAttribute('data-min'));
-    const max = Number(input.getAttribute('data-max'));
+    const min = Number(input.getAttribute('data-min')?.replace(".", ""));
+    const max = Number(input.getAttribute('data-max')?.replace(".", ""));
 
     if (value < min) input.value = min;
     if (value > max) input.value = max;

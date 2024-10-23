@@ -1,45 +1,113 @@
-{% comment %} <span class="field-currency">{{ cart.currency.symbol }}</span> {% endcomment %}
+<input
+  type="range"
+  class="min-input"
+  name="{{ filter.min_value.param_name }}"
+  id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+  {%- if filter.min_value.value -%}
+    value="{{ filter.min_value.value | money_without_currency | replace: ".", "" }}"
+  {%- else -%}
+    value="0"
+  {%- endif -%}
+  step="1000"
+  placeholder="0"
+  data-pattern="\d| |,|\."
+  min="0"
+  max="{{ filter.range_max | money_without_currency | replace: ".", "" }}"
+  data-min="0"
+  data-max="{{ filter.range_max | money_without_currency | replace: ".", "" }}"
+>
+<input
+  type="range"
+  class="max-input"
+  name="{{ filter.max_value.param_name }}"
+  id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
+  {%- if filter.max_value.value -%}
+    value="{{ filter.max_value.value | money_without_currency | replace: ".", "" }}"
+  {%- else -%}
+    value="{{ filter.range_max | money_without_currency | replace: ".", "" }}"
+  {%- endif -%}
+  step="1000"
+  placeholder="{{ filter.range_max }}"
+  data-pattern="\d| |,|\."
+  min="0"
+  max="{{ filter.range_max | money_without_currency | replace: ".", "" }}"
+  data-min="0"
+  data-max="{{ filter.range_max | money_without_currency | replace: ".", "" }}"
+>
+<div class="tooltip"></div>
+<div class="tooltip"></div>
+<div class="slider-track">.</div>
 
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.min_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
-    {%- if filter.min_value.value -%}
-      value="{{ filter.min_value.value | money_without_currency }}"
-    {%- endif -%}
-    type="number"
-    step="1000"
-    placeholder="0"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
-    {{- 'products.facets.from' | t -}}
-  </label>
-</div>
+<style>
+  .price-slider-container {
+    position: relative;
+    height: 1.85rem;
+    width: 100%;
+    display: flex;
+  }
 
-{%- if filter_type != 'vertical' -%}
-  <span class="field-currency">{{ cart.currency.symbol }}</span>
-{%- endif -%}
+  .price-slider-container input[type='range'] {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    -webkit-appearance: none;
+    z-index: 1;
+    margin-left: 0px;
+  }
 
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.max_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
-    {%- if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency }}"
-    {%- endif -%}
-    type="number"
-    step="1000"
-    placeholder="{{ filter.range_max | money_without_currency }}"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
-    {{- 'products.facets.to' | t -}}
-  </label>
-</div>
+  .price-slider-container input[type='range']::-webkit-slider-thumb {
+    pointer-events: auto;
+    height: 1rem;
+    width: 1rem;
+    cursor: pointer;
+    border-radius: 9999px;
+    border: 4px solid #fafafa;
+    background-color: #8FB7E1;
+    padding: 0.375rem;
+    -webkit-appearance: none;
+  }
+
+  .price-slider-container input[type='range']:focus-visible::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px #8FB7E1;
+  }
+
+  .price-slider-container input[type='range']:hover::-webkit-slider-thumb {
+    box-shadow: 0 0 0 2px #8FB7E1;
+  }
+
+  .price-slider-container .slider-track {
+    position: absolute;
+    top: 50%;
+    z-index: 0;
+    height: 8px;
+    width: 100%;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background-color: #e0f2fe;
+  }
+
+  .price-slider-container .tooltip {
+    position: absolute;
+    display: none;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 0.25rem;
+    background-color: #8FB7E1;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    color: #ffffff;
+  }
+
+  .price-slider-container .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #8FB7E1 transparent;
+  }
+</style>
