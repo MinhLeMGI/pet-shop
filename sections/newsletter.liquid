@@ -39,6 +39,7 @@
           <div
             class="newsletter__subheading rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %} {% if section.settings.desktop_content_alignment == 'left' %} newsletter__subheading-left{% elsif section.settings.desktop_content_alignment == 'right' %} newsletter__subheading-right{% endif %}"
             {{ block.shopify_attributes }}
+            style="max-width: 340px; text-align: left"
             {% if settings.animations_reveal_on_scroll %}
               data-cascade
               style="--animation-order: {{ forloop.index }};"
