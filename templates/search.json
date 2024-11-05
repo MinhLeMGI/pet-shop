@@ -1,7 +1,17 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-search",
+      "disabled": true,
       "settings": {
         "columns_desktop": 4,
         "image_ratio": "adapt",
@@ -18,9 +28,28 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "17307793612f7cb8c9": {
+      "type": "apps",
+      "blocks": {
+        "algolia_ai_search_discovery_instantsearch_UGk8wR": {
+          "type": "shopify://apps/algolia-ai-search-discovery/blocks/instantsearch/57bb7f86-d5fe-4d43-96ca-3953324494cf",
+          "settings": {
+            "disable_skeleton_loader": false,
+            "custom_skeleton_mockup": ""
+          }
+        }
+      },
+      "block_order": [
+        "algolia_ai_search_discovery_instantsearch_UGk8wR"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "17307793612f7cb8c9"
   ]
 }
