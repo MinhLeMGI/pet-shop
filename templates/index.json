@@ -249,7 +249,7 @@
             "heading": "Recommended Products",
             "model": "related-products",
             "maxRecommendations": 5,
-            "minRecommendations": 4,
+            "minRecommendations": 3,
             "threshold": 0,
             "showVendor": true,
             "topPadding": 28,
