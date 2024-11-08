@@ -240,31 +240,6 @@
         "padding_bottom": 36
       }
     },
-    "17310398520f811a2d": {
-      "type": "apps",
-      "blocks": {
-        "algolia_ai_search_discovery_algolia_recommend_block_L9tLx4": {
-          "type": "shopify://apps/algolia-ai-search-discovery/blocks/algolia_recommend_block/57bb7f86-d5fe-4d43-96ca-3953324494cf",
-          "settings": {
-            "heading": "Recommended Products",
-            "model": "related-products",
-            "maxRecommendations": 5,
-            "minRecommendations": 3,
-            "threshold": 0,
-            "showVendor": true,
-            "topPadding": 28,
-            "bottomPadding": 28,
-            "custom_class_name": ""
-          }
-        }
-      },
-      "block_order": [
-        "algolia_ai_search_discovery_algolia_recommend_block_L9tLx4"
-      ],
-      "settings": {
-        "include_margins": true
-      }
-    },
     "multicolumn_pTi9QG": {
       "type": "multicolumn",
       "blocks": {
@@ -405,25 +380,6 @@
     },
     "17308007031f8e603c": {
       "type": "apps",
-      "blocks": {
-        "algolia_ai_search_discovery_algolia_recommend_block_RE4RFA": {
-          "type": "shopify://apps/algolia-ai-search-discovery/blocks/algolia_recommend_block/57bb7f86-d5fe-4d43-96ca-3953324494cf",
-          "settings": {
-            "heading": "Recommended Products",
-            "model": "related-products",
-            "maxRecommendations": 5,
-            "minRecommendations": 4,
-            "threshold": 0,
-            "showVendor": true,
-            "topPadding": 28,
-            "bottomPadding": 28,
-            "custom_class_name": ""
-          }
-        }
-      },
-      "block_order": [
-        "algolia_ai_search_discovery_algolia_recommend_block_RE4RFA"
-      ],
       "settings": {
         "include_margins": true
       }
@@ -434,7 +390,6 @@
     "multicolumn_wLzUKU",
     "image_with_text_LxLDwz",
     "featured_collection",
-    "17310398520f811a2d",
     "multicolumn_pTi9QG",
     "custom_section_DPMg6y",
     "17308007031f8e603c"
